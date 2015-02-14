@@ -450,12 +450,9 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
     
     // Create the Done button
     if (self.showDoneButton && self.beingPresentedModally && !self.onTopOfNavigationControllerStack) {
-        NSString *title = NSLocalizedStringFromTable(@"Done", @"TOWebViewControllerLocalizable", @"Modal Web View Controller Close");
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonTapped:)];
-        if (IPAD)
+        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(doneButtonTapped:)];
+
             self.navigationItem.leftBarButtonItem = doneButton;
-        else
-            self.navigationItem.rightBarButtonItem = doneButton;
     }
     
     //Set the appropriate actions to the buttons
