@@ -466,6 +466,9 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
 {
     [super viewWillAppear:animated];
     
+    self.webView.hidden = YES;
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     //see if we need to show the toolbar
     if (self.navigationController) {
         if (IPAD == NO) { //iPhone
@@ -755,6 +758,9 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    
+    self.webView.hidden = NO;
+    
     [self handleLoadRequestCompletion];
     [self refreshButtonsState];
 
